@@ -20,7 +20,10 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "ZxcvbnJS",
-            dependencies: []),
+            dependencies: [],
+            resources: [
+                .copy("zxcvbn.js")
+            ]),
         .testTarget(
             name: "ZxcvbnJSTests",
             dependencies: ["ZxcvbnJS"]),

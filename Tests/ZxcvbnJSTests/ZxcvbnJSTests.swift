@@ -2,10 +2,16 @@ import XCTest
 @testable import ZxcvbnJS
 
 final class ZxcvbnJSTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(ZxcvbnJS().text, "Hello, World!")
+    func testExample1() throws {
+        let result = ZxcvbnJS().evaluate(password: "zxcvbn")
+        debugPrint("testExample1", result)
+        XCTAssertEqual(result.score, 0)
     }
+    
+    func testExample2() throws {
+        let result = ZxcvbnJS().evaluate(password: "Tr0ub4dour&3")
+        debugPrint("testExample2",  result)
+        XCTAssertEqual(result.score, 2)
+    }
+    
 }
